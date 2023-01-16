@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+/* font-family: 'League Spartan', sans-serif; */
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+} */
+:root {
+
+    --main-bg:rgb(58, 71, 100);
+    --toggle-bg: hsl(223, 31%, 20%);
+    --screen-bg:hsl(224, 36%, 15%);
+  
+    --key-bg: hsl(225, 21%, 49%);
+    --key-shadow: hsl(224, 28%, 35%);
+    --key-red:hsl(6, 63%, 50%);
+    --key-red-shadow:hsl(6, 70%, 34%);
+  
+    --key-orange:hsl(30, 25%, 89%);
+    --key-orange-shadow: hsl(28, 16%, 65%);
+  
+    --text-blue: hsl(30, 25%, 89%);
+    --text-white: rgb(255, 255, 255);
+    --text-btn: hsl(221, 14%, 31%);
+  
+  }
+  
+  [data-theme='1'] {
+  
+    --main-bg:rgb(58, 71, 100);
+    --toggle-bg: hsl(223, 31%, 20%);
+    --screen-bg:hsl(224, 36%, 15%);
+
+    --hidden:none;
+  
+    --key-bg: hsl(225, 21%, 49%);
+    --key-shadow: hsl(224, 28%, 35%);
+    --key-red:hsl(6, 63%, 50%);
+    --key-red-shadow:hsl(6, 70%, 34%);
+  
+    --key-orange:hsl(30, 25%, 89%);
+    --key-orange-shadow: hsl(28, 16%, 65%);
+  
+    --text-blue: hsl(30, 25%, 89%);
+    --text-white: rgb(255, 255, 255);
+    --text-screen: hsl(30, 25%, 89%);
+    --text-btn: hsl(221, 14%, 31%);
+  }
+  
+  
+  
+  [data-theme='2'] {
+  
+    --main-bg: rgb(230, 230, 230);
+    --toggle-bg:  hsl(0, 5%, 81%);
+    --screen-bg:hsl(0, 0%, 93%);
+  
+    --key-bg: hsl(185, 42%, 37%);
+    --key-shadow: hsl(185, 58%, 25%);
+    --key-red:hsl(25, 98%, 40%);
+    --key-red-shadow:hsl(25, 99%, 27%);
+  
+    --key-orange:hsl(45, 7%, 89%);
+    --key-orange-shadow: hsl(35, 11%, 61%);
+  
+    --text-blue: hsl(60, 10%, 19%);
+    --text-white:  rgb(255, 255, 255);
+    --text-screen: hsl(60, 10%, 19%);
+    --text-btn: hsl(60, 10%, 19%)
+  }
+  
+  
+  [data-theme='3'] {
+    
+    --main-bg:hsl(268, 75%, 9%);
+    --toggle-bg: hsl(268, 71%, 12%);
+    --screen-bg:hsl(268, 71%, 12%);
+  
+    --key-bg: hsl(281, 89%, 26%);
+    --key-shadow: hsl(285, 91%, 52%);
+    --key-red:hsl(176, 100%, 44%);
+    --key-red-shadow:hsl(177, 92%, 70%);
+  
+    --key-orange:hsl(268, 47%, 21%);
+    --key-orange-shadow: hsl(290, 70%, 36%);
+  
+    --text-blue: hsl(52, 100%, 62%);
+    --text-dark-blue: hsl(198, 20%, 13%);
+    --text-white:  rgb(255, 255, 255);
+  
+    --text-screen: hsl(52, 100%, 62%);
+    --text-btn:hsl(52, 100%, 62%);
+  }
+
+body,html{
+    background-color: var(--main-bg);
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'League Spartan', sans-serif;
+}
+.calc-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--main-bg);
+    color: var(--text-white);
+}
+.theme-layout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100vw;
+    background-color: var(--main-bg);
+    color: var(--text-blue);
+    gap: 20px;
+    
+}
+.calc{
+    margin-right: 23rem;
+    font-size: 2rem;
+}
+.theme-select{
+    display: flex;
+    flex-direction: column;
+
+}
+.theme-label{
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.theme-selectors{
+    display: flex;
+    background-color: var(--toggle-bg);
+    border-radius: 50px;
+    padding-bottom: 2.5px;
+
+}
+.radios{
+    /* border: none; */
+    accent-color: var(--key-red);
+    background-color: red;
+    cursor: pointer;
+
+    /* appearance: none; */
+    /* border-color: var(--key-red); */
+    /* outline: none; */
+    /* outline-color: orange; */
+
+}
+.output-screen{
+    height: 100px;
+    width: 600px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: var(--screen-bg);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 10px;
+    color: white;
+    overflow: hidden;
+}
+.output-screen > .prevOperand{
+    font-size: 15px;
+}
+.output-screen > .currentOperand{
+    font-size: 30px;
+    font-weight: 700;
+}
+/* .output-screen  */
+
+.calc-btns{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    background-color: var(--toggle-bg);
+    height: 350px;
+    width: 500px;
+    padding: 50px;
+    border-radius: 10px;
+
+}
+.btn-num{
+    height: 60px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--key-orange);
+    box-shadow: 0px 5px 0px var(--key-shadow);
+    color: var(--text-btn);
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    /* margin-left: 80px; */
+    /* margin-right: 20px; */
+    /* padding-right: 20px; */
+}
+
+.btn-op{
+    height: 60px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--key-orange);
+    box-shadow: 0px 5px 0px var(--key-shadow);
+    color: var(--text-btn);
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.delete{
+    height: 60px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--key-bg);
+    box-shadow: 0px 5px 0px var(--key-shadow);
+    color: var(--text-btn);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    /* text-align: center; */
+    color: var(--text-white);
+    
+    
+    /* padding-right: px; */
+}
+.btn-rst{
+    height: 60px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--key-bg);
+    box-shadow: 0px 5px 0px var(--key-shadow);
+    color: var(--text-btn);
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    /* text-align: center; */
+    color: var(--text-white);
+    grid-row-start: 1;
+    grid-row-end: 3;
+    
+    /* padding-right: px; */
+}
+.reset{
+    /* background-color: aliceblue; */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.btn-eq{
+    height: 60px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--key-red);
+    box-shadow: 0px 5px 0px var(--key-red-shadow);
+    color: var(--text-btn);
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    /* text-align: center; */
+    color: var(--text-white);
+    
+    
+    /* padding-right: px; */
+}
+.equal{
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+/* .theme-selectors */
+
+
